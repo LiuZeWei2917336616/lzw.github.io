@@ -1,7 +1,23 @@
 <html>
-<body>
-<h1>我叫刘泽伟.</h1>
-    <p>我的学号是<span id="studentnumber">2012020045</span>
-</p>
+<body style="background:#888">
+    <script src="jquery-3.4.1.js"></script>
+<h1>我叫<span id="ids"></span>.</h1>
+    <p>我的学号是<span id="idh"></span></p>
+        <img src="1.jpg" style="border-radius:10px 20px 40px 80px">
+ <button id="cc">下一个</button>
+<script>
+$(function(){
+    $.get("http://10.30.201.92:8585/data.json",function(result){
+        $("#ids").text(result.myname)
+        $("#idh").text(result.mynumber)
+    })
+    $("#cc").click(function(){
+        $.get("./kk1.json",function(result){
+        $("#ids").text(result.ids)
+        $("#idh").text(result.idh)
+    })
+    })
+})
+</script>
 </body>
 </html>
